@@ -39,7 +39,8 @@ else if ($_SESSION['logged_on_user'] != NULL)
 		</form>
 	</table>';
 ?>
-</div
+
+</div>
 </div>
 </body>
 </html>

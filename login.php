@@ -23,8 +23,10 @@ if ($_POST['submit'] == "Log in")
 else if ($_POST['submit'] == "Sign up")
 {
 	create($_POST['login'], $_POST['passwd']);
-	if (auth($_SESSION['login'], $_SESSION['passwd']))
-		$_SESSION['logged_on_user'] = $_SESSION['login'];
+	$_SESSION['login'] = $_POST['login'];
+	$_SESSION['passwd'] = $_POST['passwd'];
+	if (auth($_POST['login'], $_POST['passwd']))
+		$_SESSION['logged_on_user'] = $_POST['login'];
 }
 else if ($_POST['submit'] == "Log out")
 {
