@@ -1,5 +1,5 @@
 <?php
-header('Location: ./admin.php');
+header('Location: ./index.php');
 session_start();
 include('extract_db.php');
 $array = extract_db('./articles.csv');

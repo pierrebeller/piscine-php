@@ -9,7 +9,7 @@ header("Content-Type: Text/html");
     </head>
     <body>
     <?php
-    if (isset($_POST['mot_de_passe']) AND $_POST['mot_de_passe'] ==  "Beller")
+    if ($_SESSION['logged_on_user'] === "admin") 
     {
         echo 
         '<h1>Modifier article:</h1>
