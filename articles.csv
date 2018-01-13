@@ -1,2 +1,2 @@
-type:Pull,prix:45,qte:10,cat1:Vetements,cat2:Homme,cat3:Haut
-type:Chaussette,prix:5,qte:100,cat1:Vetement,cat2:Pieds
+type:Pull,Prix:58,qte:12,cat1:Vetement,cat2:Homme,cat3:haut
+type:Chaussette,Prix:58,qte:12,cat1:Vetement,cat2:Femme,cat3:pied

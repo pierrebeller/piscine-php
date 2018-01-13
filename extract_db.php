@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 function extract_db($path)
 {

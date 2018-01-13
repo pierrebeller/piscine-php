@@ -1,20 +1,33 @@
 <?php
 include 'auth.php';
+include 'create.php';
+include	'logout.php';
 
 session_start();
-if ($_GET['login'] && $_GET['passwd'])
+header('Location: ./index.php');
+if ($_POST['submit'] == "Log in")
 {
-	$_SESSION['login'] = $_GET['login'];
-	$_SESSION['passwd'] = $_GET['passwd'];
+	if ($_POST['login'] && $_POST['passwd'])
+	{
+		$_SESSION['login'] = $_POST['login'];
+		$_SESSION['passwd'] = $_POST['passwd'];
+	}
+	if (auth($_SESSION['login'], $_SESSION['passwd']))
+		$_SESSION['logged_on_user'] = $_SESSION['login'];
+	else 
+	{
+		$_SESSION['logged_on_user'] = "";
+		echo "ERROR\n";
+	}
 }
-if (auth($_SESSION['login'], $_SESSION['passwd']))
+else if ($_POST['submit'] == "Sign up")
 {
-	$_SESSION['logged_on_user'] = $_SESSION['login'];
-	echo "OK\n";
+	create($_POST['login'], $_POST['passwd']);
+	if (auth($_SESSION['login'], $_SESSION['passwd']))
+		$_SESSION['logged_on_user'] = $_SESSION['login'];
 }
-else 
+else if ($_POST['submit'] == "Log out")
 {
-	$_SESSION['logged_on_user'] = "";
-	echo "ERROR\n";
+	logout();
 }
 ?>
