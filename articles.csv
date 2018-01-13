@@ -1,2 +1,5 @@
-type:Pull,Prix:10,qte:160,cat1:Vetement,cat2:Homme,cat3:haut
-type:Chaussette,Prix:58,qte:267,cat1:Vetement,cat2:Femme,cat3:pied
+type:Pull,Prix:10,qte:267,cat1:Homme,cat2:Pull,cat3:Neuf
+type:Chaussette,Prix:5,qte:258,cat1:Femme,cat2:Pantalon,cat3:Usé
+type:Manteau,Prix:125,qte:10,cat1:Enfant,cat2:Pull,cat3:Occasion
+,type:,Prix:,qte:,cat1:,cat2:,cat3:
+type:Chaussures,Prix:145,qte:15,cat1:Enfant,cat2:Chaussettes,cat3:Bon

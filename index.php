@@ -62,26 +62,38 @@ if ($_SESSION['logged_on_user'] === "admin")
             <th><input type="text" name="qte" /></th>
         </tr>
         <tr>
-            <th>Catégorie 1:</th>
-            <th><input type="text" name="cat1" /></th>
+        <th>
+        	<select name="cat1" size="1">
+        	<option>Homme
+        	<option>Femme
+        	<option>Enfant
+        	</select>
+        </th>
         </tr>
         <tr>
-            <th>Catégorie 2:</th>
-            <th><input type="text" name="cat2" /></th>
+        <th>
+        	<select name="cat2" size="1">
+        	<option>Pull
+        	<option>Pantalon
+        	<option>Chaussettes
+        	</select>
+        </th>
         </tr>
         <tr>
-            <th>Catégorie 3:</th>
-            <th><input type="text" name="cat3" /></th>
+        <th>
+        	<select name="cat3" size="1">
+        	<option>Neuf
+        	<option>Bon
+        	<option>Occasion
+        	</select>
+        </th>
         </tr>
-        <!-- <tr>
-            <th>Catégorie 4:</th>
-            <th><input type="text" name="cat_4" /></th>
-        </tr> -->
         <tr>
             <th>Submit:</th>
             <th><input type="submit" name="submit" value="Submit"/></th>
         </tr>
-        </table><br />
+        </table>
+        <br />
         </form>';
     }
 else
@@ -94,3 +106,20 @@ else
 </div>
 </body>
 </html>
+
+
+        <!-- //     <th>Catégorie 1:</th>
+        //     <th><input type="text" name="cat1" /></th>
+        // </tr>
+        // <tr>
+        //     <th>Catégorie 2:</th>
+        //     <th><input type="text" name="cat2" /></th>
+        // </tr>
+        // <tr>
+        //     <th>Catégorie 3:</th>
+        //     <th><input type="text" name="cat3" /></th>
+        // </tr>
+        // <!-- <tr>
+        //     <th>Catégorie 4:</th>
+        //     <th><input type="text" name="cat_4" /></th>
+        </tr> -->
