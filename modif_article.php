@@ -7,11 +7,7 @@ $fd = fopen("./articles.csv", w);
 $modif = 0;
 foreach ($array as $key => $value)
 {
-	if ($_POST['type'] == $array[$key]['type'] && $_POST['qte'] == 0)
-	{
-		unset($array[$key]);
-	}
-	elseif ($_POST['type'] == $array[$key]['type'] && $_POST['qte'] != 0)
+	if ($_POST['type'] == $array[$key]['type'])
 	{
 		$array[$key]['type'] = "type:".$array[$key]['type'];
 		$_POST['prix'] != 0 ? $array[$key]['Prix'] = "Prix:".$_POST['prix'] : $array[$key]['Prix'] = "Prix:".$array[$key]['Prix'];
@@ -32,7 +28,7 @@ foreach ($array as $key => $value)
 	}	
 	fputcsv($fd, $array[$key]);
 }
-if ($modif == 0 && $_POST['type'] != "" && $_POST['qte'] != 0)
+if ($modif == 0 && $_POST['type'] != "")
 {
 	$key++;
 	$array[$key]['type'] = "type:".$_POST['type'];

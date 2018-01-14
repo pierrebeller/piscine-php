@@ -46,7 +46,7 @@ else if ($_SESSION['logged_on_user'] != NULL)
 if ($_SESSION['logged_on_user'] === "admin") 
     {
         echo 
-        '<h1>Modifier article:</h1>
+        '<h1>Modifier/Ajouter un article:</h1>
         <form action="modif_article.php" method="POST">
         <table>
         <tr>
@@ -94,7 +94,18 @@ if ($_SESSION['logged_on_user'] === "admin")
         </tr>
         </table>
         <br />
-        </form>';
+        </form>
+        <h1>Supprimer un article:</h1>
+        <form action="delete.php" method="POST">
+        <table>
+        <tr>
+        <th>Type:</th>
+        <th><input type="text" name="type" /></th>
+        </tr>
+        <tr>
+            <th>Delete:</th>
+            <th><input type="submit" name="submit" value="Delete"/></th>
+        </tr>';
     }
 else
 {

@@ -1,37 +1,53 @@
 <?php
-if ($_POST['login'] === "" || $_POST['oldpw'] === "" || $_POST['newpw'] === "" || $_POST['submit'] != "OK")
+function modif_passwd($login, $oldpw, $newpw)
 {
-	echo "ERROR\n";
-	exit();
-}
-if (!file_exists('../private/') || !file_exists('../private/passwd'))
-{
-	echo "ERROR\n";
-	exit();
-}
-$array = unserialize(file_get_contents('../private/passwd'));
-$test = hash('sha512', $_POST['oldpw']);
-foreach ($array as $key => $value)
-{
-	if ($key === $_POST['login'])
+	if ($login === "" || $oldpw === "" || $newpw === "")
+		return (false);
+	if (!file_exists('../private/') || !file_exists('../private/passwd'))
+		return (false);
+	$array = unserialize(file_get_contents('../private/passwd'));
+	$test = hash('sha512', $oldpw);
+	foreach ($array as $key => $value)
 	{
-		if ($value === $test)
+		if ($key === $login)
 		{
-			$array[$_POST['login']] = hash('sha512', $_POST['newpw']);
-			file_put_contents('../private/passwd', serialize($array));
-			echo "OK\n";
-			exit();
+			if ($value === $test)
+			{
+				$array[$login] = hash('sha512', $newpw);
+				file_put_contents('../private/passwd', serialize($array));
+				return (true);
+			}
+			else 
+				return (false);
 		}
 		else 
-		{
-			echo "ERROR\n";
-			exit();
-		}
+			return (false);
 	}
-	else 
+}
+function delete_user($login, $passwd)
+{
+	if ($login === "" || $passwd === "")
+		return (false);
+	if (!file_exists('../private/') || !file_exists('../private/passwd'))
+		return (false);
+	$array = unserialize(file_get_contents('../private/passwd'));
+	$test = hash('sha512', $passwd);
+	foreach ($array as $key => $value)
 	{
-		echo "ERROR\n";
-		exit();
+		if ($key === $login)
+		{
+			if ($value === $test)
+			{
+				unset($array[$login]);
+				$array = array_values($array);
+				file_put_contents('../private/passwd', serialize($array));
+				return (true);
+			}
+			else 
+				return (false);
+		}
+		else 
+			return (false);
 	}
 }
 ?>
